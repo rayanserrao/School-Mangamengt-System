@@ -1,0 +1,5 @@
+.env
+/teaching_blog/__pycache__/
+/app_users/__pycache__/
+/app_users/migrations/
+db.sqlite3
