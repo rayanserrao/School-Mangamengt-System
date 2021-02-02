@@ -31,7 +31,7 @@ class User_profile(models.Model):
         (parent,'parent'),
     ]
 
-    user_types= models.CharField(max_length=20,choices=user_types,default=student)
+    user_type= models.CharField(max_length=20,choices=user_types,default=student)
 
     def __str__(self):
         return self.user.username
