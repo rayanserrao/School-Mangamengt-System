@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from app_users.forms import UserForm,UserProfileForm
+from app_users.forms import UserForm,UserProfileForm,LoginForm
 from django.contrib.auth import authenticate,login,logout
 
 from django.contrib.auth.decorators import login_required
@@ -37,14 +37,15 @@ def registeruser(request):
 
 
 def loginuser(request):
-    if not request.user.is_authenticated:
+    # if not request.user.is_authenticated:
 
 
 
-   
-        if request.method == 'POST':
+    if request.method == 'POST':
+        form = LoginForm(request=request,data=request.POST)
+        if form.is_valid():
 
-                
+            
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
 
@@ -58,8 +59,12 @@ def loginuser(request):
                     return HttpResponse("Account deactivated")
             else:
                 return HttpResponse("Please use valid id and password")
+
     else:
-        return redirect("/index/")
+        form = LoginForm()
+    return render(request,'login.html',{'form':form})
+# else:
+    #     return redirect("/index/")
 
 
 @login_required

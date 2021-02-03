@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from app_users.models import User_profile
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,UsernameField
  
 
 class UserForm(UserCreationForm):
@@ -36,3 +36,7 @@ class UserProfileForm(forms.ModelForm):
     class Meta():
         model = User_profile
         fields = ['bio','profile_pic','user_type']
+
+class LoginForm(AuthenticationForm):
+    username = UsernameField(widget= forms.TextInput(attrs={'autofocus':True,'class':'form-control'}))
+    password = forms.CharField(label='Password',strip=False,widget=forms.PasswordInput(attrs={'autocmplete':'current-password','class':'form-control'}))
