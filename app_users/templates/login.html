@@ -1,4 +1,7 @@
-{% extends 'home.html' %}
+{% extends 'base.html' %}
+{% block title %}
+Register page
+{% endblock title %}
 {% load static %}
 {% block content %}
 
@@ -16,7 +19,7 @@
     <center><form class="container ml-5" action="" method="POST" novalidate>
         {% csrf_token %}
         {% for fm in form %}
-        <div class="form-group col-md-6 ">
+        <div class="form-group col-md-4 ">
 
             {{fm.label_tag}}
        {{fm}}

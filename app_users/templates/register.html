@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+Register page
+{% endblock title %}
+{% block content %}
+
+
+
+
+<div >
+    <h3 class="text-dark my-5">Signup Page</h3>
+    <div class="my-2">
+        <small class="text-muted">
+            Already a memeber? Please login </small>
+        <a href="/login/" role="button" class="btn btn-dark">Login</a>
+    </div>
+    <center>
+        <form action="" method="POST" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {% for fm in form %}
+        <div class="form-group col-md-6 ">
+
+            {{fm.label_tag}}
+       {{fm}}
+       <small class="text-warning">
+        {{fm.errors|striptags}}</small>
+
+        </div>
+         -->
+
+            <!-- {% endfor %} -->
+            {{user_form}}
+            {{profile_form}}
+
+
+
+            <input type="submit" class="btn btn-primary mb-3 " value="SIGNUP" name="" id="">
+            <!-- {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="alert alert-danger mt-3">{{error}}</p>
+        {% endfor %}
+        {% endif %} -->
+
+
+
+        </form>
+
+
+    </center>
+
+    </div>
+    
+
+    {% endblock %}
