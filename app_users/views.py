@@ -13,10 +13,10 @@ def registeruser(request):
     registerd = False
 
     if request.method == 'POST':
-        user_form = UserForm(request.POST)
-        profile_form = UserProfileForm(request.POST)
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
 
-        if UserForm.is_valid() and profile_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
             user.save()
 
@@ -25,6 +25,7 @@ def registeruser(request):
             profile.save()
 
             registerd = True
+            return redirect('/login/')
 
         else:
             print(user_form.errors,profile_form.errors)
@@ -54,7 +55,7 @@ def loginuser(request):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    return redirect('/index/')
+                    return redirect('/')
                 else:
                     return HttpResponse("Account deactivated")
             else:
