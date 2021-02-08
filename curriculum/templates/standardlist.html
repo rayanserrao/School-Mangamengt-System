@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+standardlist
+{% endblock %}
+
+{% block content %}
+{% for standard in standards %}
+<a href="{% url 'subjectdetail' slug=standard.slug %}">{{standard.name}}</a><br>
+{% endfor %}
+{% endblock %}

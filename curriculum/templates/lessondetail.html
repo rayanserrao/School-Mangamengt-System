@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}
+lesson detail
+{% endblock %}
+{% block content %}
+{% for lesson in subjects.lessons.all %}
+<a href="{% url 'lessondata' slug=lesson.slug subject=subjects.slug standard=lesson.standard.slug %}">Chapter - {{lesson.position}}:{{lesson.name}}</a>
+{% endfor %}
+{% endblock %}

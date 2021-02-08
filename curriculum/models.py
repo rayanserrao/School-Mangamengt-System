@@ -65,7 +65,7 @@ class Lessons(models.Model):
     standard = models.ForeignKey(Standard,on_delete=models.CASCADE)
     created_by = models.ForeignKey(User,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    subject = models.ForeignKey(Subject,on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subject,on_delete=models.CASCADE, related_name='lessons')
     name = models.CharField(max_length=200)
     position =  models.PositiveSmallIntegerField(verbose_name='chapter_no')
     slug = models.SlugField(null=True,blank=True)
