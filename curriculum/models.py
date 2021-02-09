@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 import os
+from django.urls import reverse
 
 # Create your models here.
 
@@ -73,6 +74,7 @@ class Lessons(models.Model):
     ppt = models.FileField(upload_to=save_lesson_files,verbose_name='Presentaion',blank=True,null=True)
     notes = models.FileField(upload_to=save_lesson_files,verbose_name='Notes',blank=True,null=True)
 
+
     class Meta:
         ordering = ['position']
 
@@ -82,6 +84,11 @@ class Lessons(models.Model):
     def save(self,*args,**kwargs):
         self.slug =  slugify(self.name)
         super().save(*args,**kwargs)
+
+    def get_absolute_url(self):
+        return reverse('lessondetail',kwargs={'slug':self.subject.slug,'standard':self.standard.slug})
+
+
 
 
 

@@ -5,4 +5,4 @@ class LessonForm(forms.ModelForm):
     class Meta:
             
         model = Lessons
-        fields = ('__all__')
+        fields = ['lesson_id','name','position','video','ppt','notes']

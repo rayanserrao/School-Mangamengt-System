@@ -4,4 +4,7 @@ Lesson data
 {% endblock %}
 {% block content %}
 <p>Created on {{lessons.created_at}} by {{lessons.created_by}}</p><br>
+<a href="{% url 'lessonupdate' standard=lessons.standard.slug subject=lessons.subject.slug slug=lessons.slug %}">Update</a>
+<a href="{% url 'lessondelete' standard=lessons.standard.slug subject=lessons.subject.slug slug=lessons.slug %}">Delete</a>
+<br>
 {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+Lesson Update
+{% endblock %}
+
+{% block content %}
+
+<h2>Are ypu sure you want to delte?</h2>
+
+<form action="" method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Delete" name="" id="">
+<a href="{% url 'lessondata' standard=lessons.standard.slug subject=lessons.subject.slug slug=lessons.slug %}">cancel</a>
+</form>
+{% endblock %}
