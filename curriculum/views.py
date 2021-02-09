@@ -24,7 +24,47 @@ class LessonDataView(DetailView):
     model = Lessons
     context_object_name='lessons'
     template_name='lessondata.html'
+    # form_class = CommentForm
+    # second_form_class =  ReplyForm
 
+    # ''' send two forms to page
+    #   cehck which is posted
+    #   take action on theform whivh isn posted '''
+
+    # def get_context_data(self,**kwargs):
+    #     context = super(LessonDataView,self).self.get_context_data(**kwargs)
+    #     if 'form' not in  context:
+    #         context['form'] = self.form_class(request = self.request)
+
+    #     if  'form2' not in context:
+    #         context['form2'] = self.second_form_class(request = self.request)
+
+
+    #     return context
+        
+
+    # def post(self,request,*args,**kwargs):
+
+    #     self.object = self.get_object()
+    #     if 'form' in request.POST:
+    #         form_class = self.get_form_class()
+    #         form_name = 'form'
+
+    #     else:
+    #         form_class = self.second_form_class
+    #         form_name = 'form2'
+
+    #     form = self.get_form(form_class)
+
+    #     if form_name == 'form' and form.is_valid():
+    #         print('Comment form is returned')
+    #         return self.form_valid(form)
+
+    #     elif form_name == 'form2' and form.is_valid():
+    #         print("reply form is retuerned")
+    #         return self.form2_valid(form)
+
+        
 class LessonCreateView(CreateView):
     model = Subject
     form_class = LessonForm
