@@ -6,4 +6,5 @@ lesson detail
 {% for lesson in subjects.lessons.all %}
 <a href="{% url 'lessondata' slug=lesson.slug subject=subjects.slug standard=lesson.standard.slug %}">Chapter - {{lesson.position}}:{{lesson.name}}</a>
 {% endfor %}
+<a href="{% url 'lessoncreate' standard=subjects.standard.slug slug=subjects.slug %}">Create lesson</a>
 {% endblock %}

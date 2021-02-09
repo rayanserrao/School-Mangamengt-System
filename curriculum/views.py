@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,DetailView,ListView,FormView
+from django.views.generic import TemplateView,DetailView,ListView,FormView,CreateView,UpdateView,DeleteView 
 from curriculum.models import Standard,Subject,Lessons
+from curriculum.forms import LessonForm
 
 # Create your views here.
 class StandardListView(ListView):
@@ -22,3 +23,9 @@ class LessonDataView(DetailView):
     model = Lessons
     context_object_name='lessons'
     template_name='lessondata.html'
+
+class LessonCreateView(CreateView):
+    model = Subject
+    form_class = LessonForm
+    context_object_name= 'subject'
+    template_name = 'lessoncreate.html'
