@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
 Lesson create
 {% endblock %}
 
 {% block content %}
-
-<form action="" method="POST">
+<div class=" container jumbotron my-4">
+<form class="md-6"  action="" method="POST">
 {% csrf_token %}
-{{form.as_p}}
+{{ form|crispy }}
 <input type="submit" value="SUBMIT" name="" id="">
 </form>
+</div>
 {% endblock %}

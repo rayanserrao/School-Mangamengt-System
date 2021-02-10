@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
 Lesson Update
 {% endblock %}
 
 {% block content %}
 
+<div class=" container jumbotron my-4">
+
 <form action="" method="POST">
 {% csrf_token %}
-{{form.as_p}}
+{{form|crispy}}
 <input type="submit" value="Update" name="" id="">
 <a href="{% url 'lessondata' standard=lessons.standard.slug subject=lessons.subject.slug slug=lessons.slug %}">cancel</a>
 </form>
+</div>
 {% endblock %}
